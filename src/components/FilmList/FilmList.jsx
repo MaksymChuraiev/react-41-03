@@ -1,7 +1,7 @@
 import { FilmsList } from './FilmList.styled';
 import { FilmListItem } from 'components/FilmlistItem/FilmListItem';
 
-export const FilmList = ({ filmList }, onDeleteFilm, onWatchedFilm) => {
+export const FilmList = ({ filmList, onDeleteFilm, onWatchedFilm }) => {
   return (
     <FilmsList>
       {filmList.map(({ id, title, img, watched }) => (
@@ -9,6 +9,7 @@ export const FilmList = ({ filmList }, onDeleteFilm, onWatchedFilm) => {
           onWatchedFilm={onWatchedFilm}
           watched={watched}
           key={id}
+          id={id}
           img={img}
           title={title}
           onDeleteFilm={onDeleteFilm}

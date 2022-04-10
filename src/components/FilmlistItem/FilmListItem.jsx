@@ -19,12 +19,7 @@ export const FilmListItem = ({
       <FilmItems>
         <FilmImg alt="titel" src={`https://image.tmdb.org/t/p/w500${img}`} />
         <FilmTitle>{title}</FilmTitle>
-        <FilmButton
-          type="button"
-          onClick={() => {
-            onDeleteFilm(id);
-          }}
-        >
+        <FilmButton type="button" onClick={() => onDeleteFilm(id)}>
           Delete
         </FilmButton>
         <FilmText onClick={() => onWatchedFilm(id)}>

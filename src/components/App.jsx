@@ -14,18 +14,21 @@ export class App extends Component {
     this.setState(prevState => ({ isVisible: !prevState.isVisible }));
   };
 
-  deleteFilm = deliteId => {
+  // deleteFilm = deleteId => {
+  //      this.setState(prevState => ({
+  //     films: prevState.films.filter(({ id }) => id !== deleteId),
+  //   }));
+  // };
+  deleteFilm = delId => {
     this.setState(prevState => ({
-      films: prevState.films.filter(({ id }) => id !== deliteId),
+      films: prevState.films.filter(({ id }) => id !== delId),
     }));
   };
 
   togleWathedFilm = currentId => {
     this.setState(prevState => ({
       films: prevState.films.map(film => {
-        if (film.id === currentId) {
-          film.watched = !film.watched;
-
+        if (currentId === film.id) {
           return { ...film, watched: !film.watched };
         }
         return film;
@@ -42,10 +45,10 @@ export class App extends Component {
         <Button isVisible={isVisible} togleVisibility={this.togleVisibility} />
         {isVisible && (
           <FilmList
-            onWatchedFilm={this.togleWathedFilm}
-            onDeleteFilm={this.deleteFilm}
             filmList={films}
-          ></FilmList>
+            onDeleteFilm={this.deleteFilm}
+            onWatchedFilm={this.togleWathedFilm}
+          />
         )}
       </>
     );
